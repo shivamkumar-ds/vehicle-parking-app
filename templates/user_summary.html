@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Your Parking History</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #f8d7a9, #ff7559);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    .table th {
+      background-color: #ffc107;
+      color: #000;
+    }
+    h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>My Parking Summary</h2>
+    {% if history %}
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Lot Name</th>
+            <th>Slot ID</th>
+            <th>Booked At</th>
+            <th>Released At</th>
+            <th>Total Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in history %}
+          <tr>
+            <td>{{ booking.vehicle_number }}</td>
+            <td>{{ booking.lot_name }}</td>
+            <td>{{ booking.spot_id }}</td>
+            <td>{{ booking.booking_time.strftime('%d %b %Y, %I:%M %p') }}</td>
+            <td>
+              {% if booking.release_time %}
+                {{ booking.release_time.strftime('%d %b %Y, %I:%M %p') }}
+              {% else %}
+                Still Active
+              {% endif %}
+            </td>
+            <td>₹{{ booking.total_cost}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p class="text-muted text-center">No parking history yet.</p>
+    {% endif %}
+    <div class="text-center mt-4">
+      <a href="/user_dashboard" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

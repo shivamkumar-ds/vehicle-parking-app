@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup HTML</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>     
+<body> 
+    <div id="main">
+        <div id="canvas">
+            <div id="form-body"; style="text-align: center">
+                <br>
+                <h1>Admin Profile</h1>
+                <br>
+                 <form action="/adminprofile" method="post">
+                    <h3>
+                        <label for="email">Email ID:</label>&nbsp;&nbsp;
+                        <input type="email" id="email" name="email" value="{{ user.email }}">
+                    </h3><br>
+
+                    <h3>
+                        <label for="name">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="name" name="name" value="{{ user.name }}">
+                    </h3><br>
+
+                    <h3>
+                        <label for="address">Address:</label>&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="address" name="address" value="{{ user.address }}">
+                    </h3><br>
+
+                    <h3>
+                        <label for="pincode">Pincode:</label>&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="pincode" name="pincode" value="{{ user.pincode }}">
+                    </h3><br>
+
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+                 <br>
+                 <h4><a href="/admin_dashboard">Back to Dashboard</a></h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

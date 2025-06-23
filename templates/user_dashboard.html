@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f8d7a9, #ff7559);
+      color: black;
+    }
+
+    .header-bar {
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 15px;
+      border-radius: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .header-bar a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .header-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .spot-box {
+      width: 35px;
+      height: 35px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .available {
+      background-color: #28a745;
+    }
+
+    .occupied {
+      background-color: #dc3545;
+    }
+
+    .spot-box:hover {
+      opacity: 0.85;
+    }
+
+
+    .card-header {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      .header-bar h4,
+      .header-bar div {
+        text-align: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-bar d-flex justify-content-between align-items-center flex-wrap px-4">
+    <h4 class="mb-0">Hello {{ session["user_name"] }}!</h4>
+    <div class="d-flex flex-wrap gap-3">
+      <a href="/user_dashboard">Home</a>
+      <a href="/user_summary">Summary</a>
+      <a href="/userprofile">Profile</a>
+      <a href="/login">Logout</a>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <h2 class="text-center mb-4">Available Parking Lots</h2>
+
+    {% for lot in parking_lots %}
+      <div class="card mb-4">
+        <div class="card-header">
+          <strong>{{ lot.location_name }}</strong> — ₹{{ lot.price_per_hour }}/hr<br>
+          <small class="text-muted">{{ lot.address }} | Pincode: {{ lot.pincode }}</small>
+        </div>
+        <div class="card-body d-flex flex-wrap gap-2">
+          {% for spot in lot.spots %}
+            {% if spot.status == 'available' %}
+              <form action="/book/{{ spot.id }}" method="POST">
+                <button type="submit" class="spot-box available" title="Click to book">A</button>
+              </form>
+            {% elif spot.customer_id == session["user_id"] %}
+              <a href="{{ url_for('release', spot_id=spot.id) }}" class="spot-box occupied" title="Click to release">O</a>
+            {% else %}
+              <div class="spot-box occupied" title="Occupied">O</div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <div class="text-center text-white mt-5">
+        <h5>No parking lots available at the moment.</h5>
+      </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>

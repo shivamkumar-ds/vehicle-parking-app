@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup HTML</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>     
+<body> 
+    <div id="main">
+        <div id="canvas">
+            <div id="form-body"; style="text-align: center">
+                <br>
+                <h1>User Signup</h1>
+                <br>
+                <form action="/signup" method="post">
+                <h3><label for="email">Email ID:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="email" id="email" name="email" placeholder="Enter your email"></h3><br>
+
+                <h3><label for="password">Password:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" id="password" name="password" placeholder="Enter your password"></h3><br>
+
+                <h3><label for="name">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="name" name="name" placeholder="Enter your name"></h3><br>
+
+                <h3><label for="address">Address:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="address" name="address" placeholder="Enter your address"></h3><br>  
+
+                <h3><label for="pincode">Pincode:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="pincode" name="pincode" placeholder="Enter your pincode"></h3><br>           
+
+                <div style="text-align: center">
+                    <button type="submit" class="btn btn-primary"><h3>Register</h3></button>
+                </div>
+            </form>
+            <h4>Already have an account?</h4>      
+            <a href="/login">Login here!</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

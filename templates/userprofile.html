@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup HTML</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style> 
+        #userprofile{
+            width: 600px;
+            height: 420px;
+            margin: auto;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(10px);
+            border-radius:20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+    </style>
+</head>     
+<body> 
+    <div id="main">
+        <div id="canvas">
+            <div id="userprofile"; style="text-align: center">
+                <br>
+                <h1>User Profile</h1>
+                <br>
+                <form action="/userprofile" method="post"> 
+                    <h3><label for="email">Email ID:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="email" id="email" name="email" value="{{ user.email }}"></h3><br>
+
+                    <h3><label for="name">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" id="name" name="name" value="{{ user.name }}"></h3><br>
+
+                    <h3><label for="address">Address:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" id="address" name="address" value="{{ user.address }}"></h3><br>
+
+                    <h3><label for="pincode">Pincode:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" id="pincode" name="pincode" value="{{ user.pincode }}"></h3><br>
+
+                    <h3><label for="password">New Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter new password"></h3><br>
+
+                    <button type="submit" class="btn btn-primary"><h3>Update</h3></button><br>
+                </form> 
+
+                <form action="/delete_profile" method="post">  <!-- ✅ Ensure delete action has its own form -->
+                    <button type="submit" class="btn btn-danger"><h3>Delete Profile</h3></button>
+                </form>
+
+                <h4><a href="/user_dashboard">Back to Dashboard</a></h4>
+
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

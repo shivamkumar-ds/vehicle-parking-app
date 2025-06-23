@@ -1,0 +1,91 @@
+*{           
+    margin:0px;
+}
+#main,#canvas{
+    border : 2px solid black;
+    background-color: #000;
+    color: white
+}
+#canvas {
+    width: 100%;
+    height:800px;
+    margin: auto;
+    background: linear-gradient(to right, #f8d7a9, #ff7559); /* Light orange gradient */
+    color: black;
+    font-size: 20px;
+}
+
+#form-body {
+    width: 600px;
+    height: 410px;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+
+#admin-body {
+    width: 1200px;
+    height: 40px;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    
+}
+
+#parking{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+#button1{/*this button is for +Add Lots */
+    width: 350px;
+    height: 110px;
+    margin: auto;
+    margin-top: 500px;
+    text-align: center;
+    font-size: 70px;
+    
+}
+
+#newlot {
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+#occupied {
+    width: 700px;
+    height: 600px;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
